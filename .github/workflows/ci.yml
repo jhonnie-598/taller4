@@ -1,0 +1,42 @@
+name: Continuous Integration for Astro
+
+# Ejecutar el flujo de trabajo en push o pull request en la rama main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clonar el repositorio
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Configurar Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      # 3. Instalar dependencias
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Construir el proyecto Astro
+      - name: Build Astro project
+        run: npm run build
+
+        #5.ejecutar pruebas
+        - name : Run test
+        - Run : npm test 
+
+      # 5. Verificar el resultado de la construcción
+      - name: Verify build output
+        run: test -d dist
+
