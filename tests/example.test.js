@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest';
 
-test('multiplication function works', () => {
-    const multiplicacion = (a, b) => a * b;
-    expect(multiplicacion(2, 3)).toBe(6);
+test('sum function works', () => {
+    const sum = (a, b) => a + b;
+    expect(sum(1, 2)).toBe(3);
 });
