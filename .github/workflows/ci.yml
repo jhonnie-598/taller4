@@ -32,11 +32,10 @@ jobs:
       - name: Build Astro project
         run: npm run build
 
-      #5.ejecutar pruebas
-      - name : Run test
-        Run : npm test 
+      # 5. Ejecutar pruebas
+      - name: Run tests
+        run: npm test
 
-      # 5. Verificar el resultado de la construcción
+      # 6. Verificar el resultado de la construcción
       - name: Verify build output
         run: test -d dist
-
